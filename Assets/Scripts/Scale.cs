@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Scale : MonoBehaviour
 {
-    int length = 1;
-    int width = 1;
+    int length = 10;
+    int width = 10;
+    int height = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = new Vector3(length, 1, width);
+        transform.localScale = new Vector3(length, height, width);
     }
 
     // Update is called once per frame
@@ -19,26 +20,38 @@ public class Scale : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            length += 1;
-            transform.localScale = new Vector3(length, 1, width);
+            length += 10;
+            transform.localScale = new Vector3(length, height, width);
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            length -= 1;
-            transform.localScale = new Vector3(length, 1, width);
+            length -= 10;
+            transform.localScale = new Vector3(length, height, width);
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            width += 1;
-            transform.localScale = new Vector3(length, 1, width);
+            width += 10;
+            transform.localScale = new Vector3(length, height, width);
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            width -= 1;
-            transform.localScale = new Vector3(length, 1, width);
+            width -= 10;
+            transform.localScale = new Vector3(length, height, width);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            height -= 10;
+            transform.localScale = new Vector3(length, height, width);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            height += 10;
+            transform.localScale = new Vector3(length, height, width);
         }
     }
 }
