@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class RotateByMouse : MonoBehaviour
 {
     public GameObject board;
-    public GameObject cube;
+    public GameObject[] cube;
     public float rotationSpeed;
 
     private void OnMouseDrag()
     {
-        cube.transform.parent = board.transform;
+        for (int i = 0; i < cube.Length; i++)
+        {
+            cube[i].transform.parent = board.transform;
+        }
 
         float rotY = Input.GetAxis("Mouse Y") * rotationSpeed;
         float rotX = Input.GetAxis("Mouse X") * rotationSpeed;
@@ -22,11 +26,17 @@ public class RotateByMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cube.transform.parent = null;
-
-        if (Input.GetMouseButtonDown(1))
+        for (int i = 0; i < cube.Length; i++)
         {
-            cube.SetActive(false);
+            cube[i].transform.parent = null;
+        }
+
+        if (Input.GetMouseButtonDown(2))
+        {
+            for (int i = 0; i < cube.Length; i++)
+            {
+                //cube[i].SetActive(false);
+            }
         }
     }
 }
