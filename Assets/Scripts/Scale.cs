@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class Scale : MonoBehaviour
 {
-    int length = 1;
-    int width = 1;
-    int height = 1;
+    public GameObject fatherCube;
+    public GameObject cube;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = new Vector3(length, height, width);
+
     }
 
     // Update is called once per frame
@@ -20,38 +19,42 @@ public class Scale : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            length += 1;
-            transform.localScale = new Vector3(length, height, width);
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            length -= 1;
-            transform.localScale = new Vector3(length, height, width);
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            width += 1;
-            transform.localScale = new Vector3(length, height, width);
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            width -= 1;
-            transform.localScale = new Vector3(length, height, width);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            height -= 1;
-            transform.localScale = new Vector3(length, height, width);
+            (Instantiate(cube, new Vector3(-1, 0, 0), Quaternion.identity) as GameObject).transform.parent = fatherCube.transform;
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            height += 1;
-            transform.localScale = new Vector3(length, height, width);
+            (Instantiate(cube, new Vector3(-1, 0, 1), Quaternion.identity) as GameObject).transform.parent = fatherCube.transform;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            (Instantiate(cube, new Vector3(0, 0, 1), Quaternion.identity) as GameObject).transform.parent = fatherCube.transform;
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            (Instantiate(cube, new Vector3(1, 0, 1), Quaternion.identity) as GameObject).transform.parent = fatherCube.transform;
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            (Instantiate(cube, new Vector3(1, 0, 0), Quaternion.identity) as GameObject).transform.parent = fatherCube.transform;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            (Instantiate(cube, new Vector3(1, 0, -1), Quaternion.identity) as GameObject).transform.parent = fatherCube.transform;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            (Instantiate(cube, new Vector3(0, 0, -1), Quaternion.identity) as GameObject).transform.parent = fatherCube.transform;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            (Instantiate(cube, new Vector3(-1, 0, -1), Quaternion.identity) as GameObject).transform.parent = fatherCube.transform;
         }
     }
 }

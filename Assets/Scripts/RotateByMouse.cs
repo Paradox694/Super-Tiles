@@ -31,12 +31,12 @@ public class RotateByMouse : MonoBehaviour
             cube[i].transform.parent = null;
         }
 
-        if (Input.GetMouseButtonDown(2))
-        {
-            for (int i = 0; i < cube.Length; i++)
-            {
-                //cube[i].SetActive(false);
-            }
-        }
+        //if (Input.GetMouseButtonDown(2))
+        //{
+        //    for (int i = 0; i < cube.Length; i++)
+        //    {
+        //        //cube[i].SetActive(false);
+        //    }
+        //}
     }
 }
